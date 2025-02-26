@@ -1,24 +1,43 @@
-// src/App.jsx
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Pricing from "./Pricing";
+import "./App.css";
 
+const Home = () => (
+  <section className="home">
+    <h1>Профессиональные электрики</h1>
+    <p>Надёжность, безопасность, качество</p>
+    <Link to="/pricing" className="btn">Посмотреть цены</Link>
+  </section>
+);
 
-import Product from "./Product";
+const Navbar = () => (
+  <nav className="navbar">
+    <Link to="/">Главная</Link>
+    <Link to="/pricing">Прайс</Link>
+    <Link to="/contact">Контакты</Link>
+  </nav>
+);
 
-export default function App() {
+const Contact = () => (
+  <section className="contact">
+    <h2>Контакты</h2>
+    <p>Телефон: +380 99 123 45 67</p>
+    <p>WhatsApp / Telegram: @elektrik_service</p>
+  </section>
+);
+
+const App = () => {
   return (
-    <div>
-      <h1>Best selling</h1>
-
-      <Product
-        name="Tacos With Lime"
-        imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
-        price={10.99}
-      />
-      <Product
-        name="Fries and Burger"
-        imgUrl="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?dpr=2&h=480&w=640"
-        price={14.29}
-      />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
+export default App;
   
