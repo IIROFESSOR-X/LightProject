@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Pricing from "./Pricing";
+import Pricing from "./Pricing/Pricing";
 import "./App.css";
 
 const Home = () => (
